@@ -35,8 +35,8 @@ echo "Creating registry secret"
 kubectl create secret -n $KUBE_NAMESPACE \
   docker-registry gitlab-registry \
   --docker-server="$CI_REGISTRY" \
-  --docker-username="$GL_USERNAME" \
-  --docker-password="$GL_PASSWORD" \
+  --docker-username="$CI_REGISTRY_USER" \
+  --docker-password="$CI_REGISTRY_PASSWORD" \
   --docker-email="$GITLAB_USER_EMAIL" \
   -o yaml --dry-run | kubectl apply -n $KUBE_NAMESPACE -f -
 echo "Registry secret created"
