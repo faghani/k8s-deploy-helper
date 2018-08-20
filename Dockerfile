@@ -17,7 +17,7 @@ RUN apk add -U openssl curl tar gzip bash ca-certificates git wget jq libintl co
 COPY / /opt/kubernetes-deploy/
 
 # Install glibc for Alpine
-apk --no-cache --allow-untrusted -X https://apkproxy.herokuapp.com/sgerrand/alpine-pkg-glibc add glibc glibc-bin
+RUN apk --no-cache --allow-untrusted -X https://apkproxy.herokuapp.com/sgerrand/alpine-pkg-glibc add glibc glibc-bin
 
 # Install yq
 RUN wget -q -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 && chmod +x /usr/local/bin/yq
