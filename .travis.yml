@@ -9,7 +9,7 @@ env:
   global:
     - COMMIT=${TRAVIS_COMMIT::8}
 
-after_success:
+script:
   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
   - export REPO=alirezafaghani/k8s-deploy-helper
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
