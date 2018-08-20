@@ -15,7 +15,7 @@ buildargs=$(get_buildargs)
 
 if [[ -n "$CI_REGISTRY_USER" ]]; then
 	echo "Logging to GitLab Container Registry with CI credentials..."
-	echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" "$CI_REGISTRY" --password-stdin
+	echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" registry.gitlab.com --password-stdin
 	echo ""
 fi
 
